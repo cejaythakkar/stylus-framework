@@ -1,0 +1,22 @@
+{
+  "name": "express-test",
+  "version": "1.0.0",
+  "description": "learning express",
+  "main": "mainController.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cejaythakkar/pucho_kem.git"
+  },
+  "author": "jay thakkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cejaythakkar/pucho_kem/issues"
+  },
+  "homepage": "https://github.com/cejaythakkar/pucho_kem",
+  "devDependencies": {
+    "express": "^4.12.4"
+  }
+}
