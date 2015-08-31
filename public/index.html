@@ -2,15 +2,25 @@
 <html lang="en">
   <head>
     <title>index</title>
-    <link href="css/classicBuild.css" rel="stylesheet" type="text/css">
+    <link href="css/classicBuild.css" rel="stylesheet" type="text/css" id="changeTheme">
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
   </head>
   <body>
     <div id="mainContainer">
       <div id="header">header</div>
       <div id="bodyContainer">
-        <div id="left-panel">left panel</div>
+        <div id="left-panel">left panel
+          <div id="theme-panel">
+            <ul id="theme-list">
+              <li><a value="classic" class="themeAnchor">classic</a></li>
+              <li><a value="dark" class="themeAnchor">dark</a></li>
+              <li><a value="enterprise" class="themeAnchor">enterprise</a></li>
+              <li><a value="pro" class="themeAnchor">pro</a></li>
+            </ul>
+          </div>
+        </div>
         <div id="main-body">
           <div id="article">
             <iframe id="articleIframe" src="articles/jada_bharata/index.html" frameborder="0"></iframe>
@@ -20,4 +30,7 @@
       <div id="footer">footer</div>
     </div>
   </body>
+  <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
 </html>

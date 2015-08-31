@@ -14,12 +14,12 @@ body {
 #left-panel {
   width: 150px;
   height: 100%;
-  display: inline-block;
+  float: left;
 }
 #main-body {
   width: 800px;
   height: 100%;
-  display: inline-block;
+  float: left;
 }
 #article,
 #article #articleIframe {

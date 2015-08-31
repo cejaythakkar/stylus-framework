@@ -8,6 +8,7 @@ module.exports = (function(){
 		stylFileArray : [],
 		path : '',
 		getThemes : function(path){
+			console.log('----' + path)
 			var fileNameArray = fs.readdirSync(path);
 			this.stylFileArray = [];
 			this.path = path;
