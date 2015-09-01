@@ -15,6 +15,6 @@ CommonUtilities.bindEvent({
     selector : $('a.themeAnchor'),
     eventType : 'click',
     callback : function(){
-        $('#changeTheme').attr('href','css/' + $(this).attr('value') + 'Build.css');
+        $('#changeTheme').attr('href','../css/' + $(this).attr('value') + 'Build.css');
     }
 });

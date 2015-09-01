@@ -38,6 +38,20 @@ jadeTools.compileJade({
 	data : jadeData.themeList
 });
 
+app.set('views','./public/jade');
+
 app.listen(3000,function(){
 	console.log('listening on port 3000....')
+});
+
+app.get('/',function(request,response){
+	response.render('index.jade',{themeList : jadeData.themeList})
+});|
+
+app.get('/articles',function(request,response){
+	response.render('articles.jade',{themeList : jadeData.themeList})
+});|
+
+app.get('/downloads',function(request,response){
+	response.render('downloads.jade')
 });

@@ -32,6 +32,16 @@ ul#theme-list {
 ul#theme-list:hover {
   cursor: pointer;
 }
+#theme-list a:hover {
+  text-decoration: none;
+}
+#theme-list a {
+  color: #f1eeee;
+  font-size: 1.3em;
+}
+#left-panel li {
+  height: 30px;
+}
 #footer {
   height: 50px;
 }
