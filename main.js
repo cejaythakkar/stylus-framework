@@ -46,11 +46,11 @@ app.listen(3000,function(){
 
 app.get('/',function(request,response){
 	response.render('index.jade',{themeList : jadeData.themeList})
-});|
+});
 
 app.get('/articles',function(request,response){
 	response.render('articles.jade',{themeList : jadeData.themeList})
-});|
+});
 
 app.get('/downloads',function(request,response){
 	response.render('downloads.jade')
