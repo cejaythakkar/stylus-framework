@@ -11,11 +11,17 @@ var fs = require('fs'),
 	jade = require('jade'),
 	jadeTools = require('./public/js/jade-tools'),
 	listening = require('./public/js/listing'),
-	jadeData = {};
-
-
+	jadeData = {
+		tabList : ['Downloads','Articles']
+	},port = process.env.PORT || 3000,
+	bodyParser = require('body-parser')
+	Server = require('mongodb').Server,
+	Db = require('mongodb').Db,
+	db = new Db('atmaagyan',new Server('localhost',27017,{'native_parser' : true}));
+	
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended:false}));
 	
 themesModule.createThemeBuildFile({
 	path : buildPath,
@@ -32,26 +38,49 @@ themesModule.compileStylToCss({
 
 jadeData.themeList = listening.getListing();
 
-jadeTools.compileJade({
+/*jadeTools.compileJade({
 	jadePath : __dirname + '/public/jade/index.jade',
 	htmlPath : __dirname + '/public/index.html',
-	data : jadeData.themeList
-});
+	data : jadeData
+});*/
 
 app.set('views','./public/jade');
 
-app.listen(process.env.PORT,function(){
-	console.log('listening on port 3000....')
+app.listen(port,function(){
+	console.log('listening on port %d....',port);
 });
 
 app.get('/',function(request,response){
-	response.render('index.jade',{themeList : jadeData.themeList})
+	response.render('index.jade',jadeData)
 });
 
 app.get('/articles',function(request,response){
-	response.render('articles.jade',{themeList : jadeData.themeList})
+    var collection = db.collection('articles');
+    collection.findOne({},{},function(e,docs){
+        response.send(docs.html);
+    });
+});
+
+app.get('/articles/:name',function(request,response){
+	var name = request.params.name,
+		collection = db.collection('articles');
+	console.log(name);
+	collection.find({'articleName':name}).toArray(function(err,doc){
+		response.send(doc[0].html);
+	});
 });
 
 app.get('/downloads',function(request,response){
-	response.render('downloads.jade')
+	var fn = jade.compile(fs.readFileSync(__dirname + '/public/jade/downloads.jade'));
+	response.end(fn());
+});
+
+app.get('*',function(request,response){
+	response.render('notfound.jade');
+});
+
+db.open(function(err,mongoClient){
+	app.post('/login',function(request,response){
+		console.log(request.body);
+	});
 });

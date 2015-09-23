@@ -1,1 +1,11 @@
-div#header Historical Events
+div#header
+	div#appLogo Atmaa Gyan
+	div#login
+		button#login-button Login
+	div#loginDiv
+		form#loginForm(action="/login",method="POST")
+			label(for="username") User Name
+			input#username(type="text",name="username")
+			label(for="password") Password
+			input#password(type="password",name="password")
+			input(type="submit",text="Login",value="Login")

@@ -18,3 +18,30 @@ CommonUtilities.bindEvent({
         $('#changeTheme').attr('href','../css/' + $(this).attr('value') + 'Build.css');
     }
 });
+var commonUtil = (function(){
+    function func(){}
+
+    func.prototype = {
+        bindNavigationEvents : function(){
+            CommonUtilities.bindEvent({
+                selector : $('a#ArticlesTab'),
+                eventType : 'click',
+                callback : function(){
+                    $('div#main-body').load('/articles');
+                }
+            });
+
+            CommonUtilities.bindEvent({
+                selector : $('a#DownloadsTab'),
+                eventType : 'click',
+                callback : function(){
+                    $('div#main-body').load('/downloads');
+                }
+            });
+        }
+    };
+
+    return new func();
+})();
+
+commonUtil.bindNavigationEvents();

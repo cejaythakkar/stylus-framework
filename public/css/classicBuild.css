@@ -26,6 +26,17 @@ body {
   width: 100%;
   height: 100%;
 }
+ul#navigationList {
+  list-style: none;
+}
+#navigationList li {
+  display: inline;
+  padding-right: 20px;
+  font-size: 1.5em;
+}
+#navigationList>li>a:hover {
+  text-decoration: none;
+}
 ul#theme-list {
   list-style: none;
 }

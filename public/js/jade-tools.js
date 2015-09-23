@@ -19,9 +19,7 @@ module.exports = (function(){
 		compileJade : function(configObj){
 			console.log(configObj.data);
 			var fn = jade.compileFile(configObj.jadePath,{pretty : true}),
-				html = fn({
-					themeList : configObj.data
-				});
+				html = fn(configObj.data);
 
 			configObj.htmlPath && fs.writeFileSync(configObj.htmlPath , html);
 		}
