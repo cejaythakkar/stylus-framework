@@ -55,10 +55,18 @@ app.get('/',function(request,response){
 });
 
 app.get('/articles',function(request,response){
-    var collection = db.collection('articles');
-    collection.findOne({},{},function(e,docs){
-        response.send(docs.html);
-    });
+    var articles = db.collection('articles').find();
+    	articleNames = [],
+    	fn = jade.compileFile(__dirname + '/public/jade/articles.jade'),
+    	html = '';
+	articles.toArray(function(err,docs){
+		for(var i = 0;i < docs.length ; i++){
+			articleNames.push(docs[i].articleName);
+		}
+		html = fn({listing:articleNames});
+		console.log(html);
+    	response.send(html);
+	});
 });
 
 app.get('/articles/:name',function(request,response){

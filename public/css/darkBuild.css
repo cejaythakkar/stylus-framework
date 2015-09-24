@@ -2,14 +2,24 @@ body {
   margin: 0px;
   color: #f1eeee;
 }
+#mainContainer li {
+  list-style: none;
+}
+#mainContainer a:hover {
+  text-decoration: none;
+}
 #header {
   height: 80px;
+  clear: both;
+}
+#login {
+  display: none;
+}
+#loginDiv {
+  display: none;
 }
 #mainContainer {
   background-color: #766666;
-}
-#bodyContainer {
-  height: 550px;
 }
 #left-panel {
   width: 150px;
@@ -55,4 +65,5 @@ ul#theme-list:hover {
 }
 #footer {
   height: 50px;
+  clear: both;
 }

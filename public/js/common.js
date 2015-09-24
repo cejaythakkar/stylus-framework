@@ -27,7 +27,15 @@ var commonUtil = (function(){
                 selector : $('a#ArticlesTab'),
                 eventType : 'click',
                 callback : function(){
-                    $('div#main-body').load('/articles');
+                    $('div#article').load('/articles',function(){
+                         CommonUtilities.bindEvent({
+                            selector : $('#article-listing li a'),
+                            eventType : 'click',
+                            callback : function(){
+                                $('div#article').load('/articles/' + $(this).attr('value'));
+                            }
+                        });            
+                    });
                 }
             });
 
@@ -35,7 +43,7 @@ var commonUtil = (function(){
                 selector : $('a#DownloadsTab'),
                 eventType : 'click',
                 callback : function(){
-                    $('div#main-body').load('/downloads');
+                    $('div#article').load('/downloads');
                 }
             });
         }

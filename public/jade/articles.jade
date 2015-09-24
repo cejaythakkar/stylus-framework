@@ -1,1 +1,5 @@
-div#article-listing listing of articles
+div#article-listing
+	ul
+		each val in listing
+			li.articles
+				a(value="#{val}")= val

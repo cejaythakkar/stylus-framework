@@ -1,0 +1,268 @@
+var hobbyList = [
+					'cricket',
+					'football',
+					'programming',
+					'painting',
+					'gyming',
+					'music',
+					'reading',
+					'travelling',
+					'eating',
+					'watching movies'
+				],
+	favouraitFootballer = [
+					'suarez',
+					'ronaldo',
+					'messi',
+					'rodriguez',
+					'bale',
+					'aguero',
+					'silva',
+					'rooney',
+					'martial',
+					'di maria'
+				],
+	dishesPrefered = [
+					'gujarati',
+					'thai',
+					'punjabi',
+					'chinese',
+					'italian',
+					'spanish',
+					'labanese',
+					'arabian',
+					'south indian',
+					'bhaji pav'
+				],
+	luckyNumber=[0,1,2,3,4,5,6,7,8,9],
+	people = [{
+				name : 'jay',
+				lastname : 'thakkar',
+				gender : 'male'
+			},
+			{
+				name : 'rachit',
+				lastname : 'sakhidas',
+				gender : 'male'
+			},
+			{
+				name : 'umang',
+				lastname : 'patel',
+				gender : 'male'
+			},
+			{
+				name : 'nishith',
+				lastname : 'shah',
+				gender : 'male'
+			},
+			{
+				name : 'jay',
+				lastname : 'harkhani',
+				gender : 'male'
+			},
+			{
+				name : 'nisarg',
+				lastname : 'patel',
+				gender : 'male'
+			},
+			{
+				name : 'pratik',
+				lastname : 'patel',
+				gender : 'male'
+			},
+			{
+				name : 'harsh',
+				lastname : 'darji',
+				gender : 'male'
+			},
+			{
+				name : 'bhaumik',
+				lastname : 'joshi',
+				gender : 'male'
+			},
+			{
+				name : 'krupal',
+				lastname : 'patel',
+				gender : 'male'
+			},
+			{
+				name : 'haresh',
+				lastname : 'asal',
+				gender : 'male'
+			},		
+			{
+				name : 'priyam',
+				lastname : 'patel',
+				gender : 'male'
+			},
+			{
+				name : 'suresh',
+				lastname : 'dadhwal',
+				gender : 'male'
+			},
+			{
+				name : 'gagan',
+				lastname : 'chapadia',
+				gender : 'male'
+			},
+			{
+				name : 'paresh',
+				lastname : 'tahilliani',
+				gender : 'male'
+			},
+			{
+				name : 'pratik',
+				lastname : 'parikh',
+				gender : 'male'
+			},
+			{
+				name : 'romilla',
+				lastname : 'dutta',
+				gender : 'female'
+			},
+			{
+				name : 'rosy',
+				lastname : 'maria',
+				gender : 'female'
+			},
+			{
+				name : 'suzen',
+				lastname : 'costa',
+				gender : 'female'
+			},
+			{
+				name : 'sakshi',
+				lastname : 'sharma',
+				gender : 'female'
+			},
+			{
+				name : 'reecha',
+				lastname : 'sharma',
+				gender : 'female'
+			},
+			{
+				name : 'mario',
+				lastname : 'ballotelli',
+				gender : 'male'
+			},
+			{
+				name : 'riddhi',
+				lastname : 'parikh',
+				gender : 'female'
+			},
+			{
+				name : 'sanchari',
+				lastname : 'dutta',
+				gender : 'female'
+			},
+			{
+				name : 'ankita',
+				lastname : 'item',
+				gender : 'female'
+			},
+			{
+				name : 'nikita',
+				lastname : 'shah',
+				gender : 'female'
+			},
+			{
+				name : 'rachit',
+				lastname : 'sakhidas',
+				gender : 'male'
+			},
+			{
+				name : 'penela',
+				lastname : 'cruize',
+				gender : 'female'
+			},
+			{
+				name : 'billo',
+				lastname : 'rani',
+				gender : 'female'
+			},
+			{
+				name : 'chikni',
+				lastname : 'chamelli',
+				gender : 'female'
+			},
+			{
+				name : 'jalebi',
+				lastname : 'bie',
+				gender : 'female'
+			},
+			{
+				name : 'rubina',
+				lastname : 'multani',
+				gender : 'male'
+			},
+			{
+				name : 'narshin',
+				lastname : 'mendosa',
+				gender : 'male'
+			},
+			{
+				name : 'nargis',
+				lastname : 'sakhidas',
+				gender : 'female'
+			},
+			{
+				name : 'pinky',
+				lastname : 'sheikh',
+				gender : 'female'
+			},
+			{
+				name : 'mohammad',
+				lastname : 'rocket',
+				gender : 'male'
+			},
+			{
+				name : 'mohammad',
+				lastname : 'thakkar',
+				gender : 'male'
+			},
+			{
+				name : 'riaz',
+				lastname : 'sopariwala',
+				gender : 'male'
+			},
+			{
+				name : 'anil',
+				lastname : 'sakhidas',
+				gender : 'male'
+			}];
+
+function getFavFive(arr){
+	var favFive = [];
+	for(var i = 0;i < 5;i++){
+		favFive.push(arr[Math.floor((Math.random() * 10) + 1)])
+	}
+	return favFive;
+}
+
+for(var i=0;i < people.length;i++){
+	db.experiment.insert({
+		'name':people[i].name,
+		'lastName' :people[i].lastname,
+		'gender' :people[i].gender,
+		'luckyNumber' :luckyNumber[Math.floor((Math.random()*10)+1)],
+		'hobbies' : getFavFive(hobbyList),
+		'favplayers' : getFavFive(favouraitFootballer),
+		'favDishes' :getFavFive(dishesPrefered)
+	});
+}
+
+1) to get the records where fFootballer is null.
+
+db.experiment.find({'fFootballer' : null })
+
+2) get records who are intrested in staring @ girls
+
+db.experiment.find({'name' : 'gagan'})
+
+db.experiment.find({$and : [{'name' : 'rachit' , 'lastName' : 'sakhidas'}]})
+
+// luckyNumber 9
+
+ db.experiment.findOne({'luckyNumber' : 9},{'name':true,'_id':false})
+
+ db.experiment.find({favDishes : })
