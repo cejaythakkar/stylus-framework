@@ -16,12 +16,13 @@ module.exports = (function(){
 				data : themeList
 			});
 		},
-		compileJade : function(configObj){
-			console.log(configObj.data);
-			var fn = jade.compileFile(configObj.jadePath,{pretty : true}),
-				html = fn(configObj.data);
-
-			configObj.htmlPath && fs.writeFileSync(configObj.htmlPath , html);
+		compileJade : function(path){
+			this.fn = jade.compileFile(path,{pretty : true});
+			// return fn;
+			// configObj.htmlPath && fs.writeFileSync(configObj.htmlPath , html);
+		},
+		getHtml : function(data){
+			return this.fn(data);
 		}
 	}
 	 return new func();

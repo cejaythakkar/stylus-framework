@@ -57,14 +57,13 @@ app.get('/',function(request,response){
 app.get('/articles',function(request,response){
     var articles = db.collection('articles').find();
     	articleNames = [],
-    	fn = jade.compileFile(__dirname + '/public/jade/articles.jade'),
     	html = '';
+	jadeTools.compileJade(__dirname + '/public/jade/articles.jade')
 	articles.toArray(function(err,docs){
 		for(var i = 0;i < docs.length ; i++){
 			articleNames.push(docs[i].articleName);
 		}
-		html = fn({listing:articleNames});
-		console.log(html);
+		html = jadeTools.getHtml({listing:articleNames});
     	response.send(html);
 	});
 });
